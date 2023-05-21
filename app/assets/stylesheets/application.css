@@ -13,3 +13,24 @@
  *= require_tree .
  *= require_self
  */
+
+ h1 {
+  text-align: center;
+  font-size: 48px;
+ }
+
+ .link {
+  text-align: center;
+  text-decoration: none;
+  font-size: 24px;
+
+ }
+
+ .new_restaurant_link {
+  display: block;
+  color: red;
+ }
+
+ .link:hover {
+  color: black;
+ }

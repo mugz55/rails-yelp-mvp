@@ -1,0 +1,12 @@
+<div class="container pt-3">
+  <h1>Restaurants</h1>
+  <div class="d-flex flex-column">
+    <% @restaurants.each do |restaurant| %>
+      <%= link_to restaurant.name, restaurant_path(restaurant), class: "link m-auto mt-1" %>
+    <% end %>
+  </div>
+
+  <div class="pt-3 pb-3">
+  <%= link_to "Add a new restaurant", new_path(), class: "link new_restaurant_link" %>
+  <div>
+</div>

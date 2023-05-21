@@ -1,0 +1,45 @@
+<div class="container pt-3 pb-3">
+  <h1><%= @restaurant.name %></h1>
+  <div class="pt-3 d-flex justify-content-center">
+    <ul class="list-group">
+      <li class="list-group-item"><strong>Address: </strong><%= @restaurant.address %></li>
+      <li class="list-group-item"><strong>Phone Number: </strong><%= @restaurant.phone_number %></li>
+      <li class="list-group-item"><strong>Category: </strong><%= @restaurant.category.capitalize %></li>
+    </ul>
+  </div>
+
+  <div class="container p-5">
+    <table class="table table-striped">
+      <tr>
+        <th>Rating</th>
+        <th>Content</th>
+      </tr>
+      <% if @restaurant.reviews.length >= 1 %>
+        <% @restaurant.reviews.each do |review| %>
+          <tr>
+            <td><%= review.rating %></td>
+            <td><%= review.content %></td>
+          </tr>
+        <% end %>
+      <% else %>
+        <tr>
+          <td>No reviews yet.</td>
+          <td>Be the first to review!</td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+
+  <div class="container p-5">
+    <h2 class="text-center">Add a Review</h2>
+    <%= simple_form_for(@review, url: restaurant_path(@restaurant)) do |f| %>
+      <%= f.input :rating, collection: 0..5 %>
+      <%= f.input :content %>
+     <%= f.submit %>
+    <% end %>
+  </div>
+
+  <div class="container d-flex flex-column justify-content-center p-5">
+    <%= link_to "Back to home", restaurants_path(), class: "link m-auto" %>
+  <div>
+</div>
